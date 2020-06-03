@@ -6,7 +6,7 @@ This Docker Image should help you to deploy your Ruby on Rails application with 
 
 This image just setup the Ruby enviroment. To setup Rails enviroment, put following.
 
-For Dokku, put the following:
+For Dokku, using Dockerfile instead of Buildpacks, put the following:
 
 ```Dockerfile
 FROM alutsu/ruby-oracle-node-yarn
