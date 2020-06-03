@@ -4,7 +4,7 @@ This Docker Image should help you to deploy your Ruby on Rails application with 
 
 ## Setting up Ruby on Rails
 
-This just setup the Ruby enviroment. To setup Rails enviroment, put following.
+This image just setup the Ruby enviroment. To setup Rails enviroment, put following.
 
 For Dokku, put the following:
 
