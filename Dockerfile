@@ -28,18 +28,3 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update && apt-get -qqyy install nodejs yarn && rm -rf /var/lib/apt/lists/*
 
-# Install Ruby Gems and node modules
-COPY Gemfile* /tmp/
-COPY package.json /tmp/
-COPY yarn.lock /tmp/
-WORKDIR /tmp
-RUN gem install bundler
-RUN bundle install --jobs 5 --retry 5 --without development test
-RUN yarn install
-RUN mkdir /app
-WORKDIR /app
-COPY . /app
-ENV RAILS_ENV production
-
-# Execute the Procfile
-CMD ["bin/run-dev.sh"]
